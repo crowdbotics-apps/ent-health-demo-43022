@@ -104,25 +104,35 @@ const PatientPortal = () => {
           {patientData.name[0].given.join(" ")} {patientData.name[0].family}
         </Text>
       </View>
-      <View style={styles.info}>
-        <Text style={styles.infoText}>Gender: {patientData.gender}</Text>
-        <Text style={styles.infoText}>Birth Date: {patientData.birthDate}</Text>
-        <Text style={styles.infoText}>
-          Phone: {patientData.telecom[0].value}
-        </Text>
-        <Text style={styles.infoText}>
-          Email: {patientData.telecom[1].value}
-        </Text>
-        <Text style={styles.infoText}>
-          Address: {patientData.address[0].line[0]},{" "}
-          {patientData.address[0].city}, {patientData.address[0].state},{" "}
-          {patientData.address[0].postalCode}, {patientData.address[0].country}
-        </Text>
+      <View style={styles.infoWrapper}>
+        <View style={styles.info}>
+          <Text style={styles.h2}>Gender: </Text>
+          <Text>{patientData.gender}</Text>
+
+          <Text style={styles.h2}>Email: </Text>
+          <Text>{patientData.telecom[1].value}</Text>
+        </View>
+        <View style={styles.info}>
+          <Text style={styles.h2}>Birth Date:</Text>
+          <Text> {patientData.birthDate}</Text>
+          <Text style={styles.h2}>Phone: </Text>
+          <Text>{patientData.telecom[0].value}</Text>
+        </View>
+        <View style={styles.info}>
+          <Text style={styles.h2}>Address:</Text>
+          <Text>{patientData.address[0].line[0]}, </Text>
+          <Text>
+            {patientData.address[0].city}, {patientData.address[0].state}
+          </Text>
+          <Text>{patientData.address[0].postalCode}</Text>
+          <Text>{patientData.address[0].country}</Text>
+        </View>
       </View>
 
       <View style={styles.lower}>
         <View style={styles.col1}>
           <Text style={styles.h1}>Appointments</Text>
+          <View style={styles.YzkGHIhz} />
           <FlatList style={styles.flatlist} renderItem={({
           item
         }) => <View style={styles.renderItem}>
@@ -134,10 +144,7 @@ const PatientPortal = () => {
         </View>
         <View style={styles.col2}>
           <Text style={styles.h1}>Prescriptions</Text>
-          <View style={styles.lower}> <View style={styles.col1Fl}>
-            <Text>Medication:</Text>
-          </View></View>
-          
+          <View style={styles.YzkGHIhz} />
           <FlatList style={styles.flatlist} renderItem={({
           item
         }) => <View style={styles.renderItem}>
@@ -158,22 +165,28 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff"
   },
   col1: {
-    flex: 1
+    flex: 1,
+    margin: 10
   },
   col2: {
-    flex: 1
+    flex: 1,
+    margin: 10
   },
   col1Fl: {
     flex: 1,
     width: "25%"
   },
   h1: {
+    marginTop: 10,
+    marginBottom: 10,
     fontSize: 24,
     fontWeight: "bold"
   },
   h2: {
     fontSize: 18,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    marginTop: 5,
+    marginBottom: 5
   },
   h3: {
     fontSize: 14
@@ -188,17 +201,25 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     marginBottom: 10
   },
+  info: {
+    flex: 1,
+    backgroundColor: "#f0f0f0",
+    padding: 10,
+    borderRadius: 10
+  },
+  infoWrapper: {
+    paddingLeft: "300px",
+    flexDirection: "row",
+    backgroundColor: "#f0f0f0",
+    padding: 10,
+    borderRadius: 10
+  },
   lower: {
     flexDirection: "row"
   },
   name: {
     fontSize: 24,
     fontWeight: "bold"
-  },
-  info: {
-    backgroundColor: "#f0f0f0",
-    padding: 20,
-    borderRadius: 10
   },
   infoText: {
     fontSize: 18,
