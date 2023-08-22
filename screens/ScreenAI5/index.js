@@ -56,30 +56,25 @@ const PatientPortal = () => {
     }]
   };
   const apptData = [{
-    date: "2023-08-25",
+    date: "2023-08-22",
     doctor: "Dr. Smith",
-    patient: "John Doe",
+    patientId: "patient1",
     notes: "John complains of persistent headaches over the past two weeks. No history of head injuries. Suspected tension headaches. Advised to track triggers and stressors."
   }, {
-    date: "2023-09-10",
+    date: "2023-05-10",
     doctor: "Dr. Johnson",
-    patient: "John Doe",
+    patientId: "patient1",
     notes: "John presents with symptoms of fatigue, weight gain, and hair thinning. Thyroid function test ordered to rule out hypothyroidism. Follow-up scheduled for test results."
   }, {
-    date: "2023-10-03",
+    date: "2022-10-03",
     doctor: "Dr. Rodriguez",
-    patient: "John Doe",
+    patientId: "patient1",
     notes: "John reports difficulty breathing during exercise. Past history of asthma. Lung function tests conducted, revealing decreased lung capacity. Inhaler dosage adjusted."
   }, {
-    date: "2023-11-12",
+    date: "2022-09-12",
     doctor: "Dr. Patel",
-    patient: "John Doe",
+    patientId: "patient1",
     notes: "John experiences seasonal allergies, reporting sneezing and itchy eyes. Prescribed antihistamines and advised on environmental allergen management."
-  }, {
-    date: "2023-12-06",
-    doctor: "Dr. Lee",
-    patient: "John Doe",
-    notes: "John seeks advice for lower back pain after lifting heavy objects. Physical examination reveals muscle strain. Prescribed pain relievers and recommended rest."
   }];
   const prescriptions = [{
     medication: "Antihistamine",
@@ -131,14 +126,18 @@ const PatientPortal = () => {
           <FlatList style={styles.flatlist} renderItem={({
           item
         }) => <View style={styles.renderItem}>
-                <Text>{item.date}</Text>
-                <Text>{item.doctor}</Text>
+                <Text style={styles.h2}>{item.date}</Text>
+                <Text style={styles.h3}>{item.doctor}</Text>
                 <Text>{item.patient}</Text>
                 <Text>{item.notes}</Text>
               </View>} ItemSeparatorComponent={() => <View style={styles.XlMPPNVK} />} data={apptData} keyExtractor={(item, index) => index}></FlatList>{" "}
         </View>
         <View style={styles.col2}>
           <Text style={styles.h1}>Prescriptions</Text>
+          <View style={styles.lower}> <View style={styles.col1Fl}>
+            <Text>Medication:</Text>
+          </View></View>
+          
           <FlatList style={styles.flatlist} renderItem={({
           item
         }) => <View style={styles.renderItem}>
@@ -164,9 +163,20 @@ const styles = StyleSheet.create({
   col2: {
     flex: 1
   },
+  col1Fl: {
+    flex: 1,
+    width: "25%"
+  },
   h1: {
     fontSize: 24,
     fontWeight: "bold"
+  },
+  h2: {
+    fontSize: 18,
+    fontWeight: "bold"
+  },
+  h3: {
+    fontSize: 14
   },
   header: {
     alignItems: "center",
