@@ -1,3 +1,4 @@
+import { ImageBackground } from "react-native";
 import { FlatList } from "react-native";
 import React from "react";
 import { SafeAreaView, View, Text, Image, StyleSheet } from "react-native";
@@ -103,7 +104,7 @@ const PatientPortal = () => {
         <Text style={styles.name}>
           {patientData.name[0].given.join(" ")} {patientData.name[0].family}
         </Text>
-      </View>
+      <ImageBackground style={styles.NqkjuQna} source={require("./Ochsner_Health_System_logo.png")} resizeMode="cover"></ImageBackground></View>
       <View style={styles.infoWrapper}>
         <View style={styles.info}>
           <Text style={styles.h2}>Gender: </Text>
@@ -166,15 +167,11 @@ const styles = StyleSheet.create({
   },
   col1: {
     flex: 1,
-    margin: 10
+    margin: 30
   },
   col2: {
     flex: 1,
-    margin: 10
-  },
-  col1Fl: {
-    flex: 1,
-    width: "25%"
+    margin: 30
   },
   h1: {
     marginTop: 10,
@@ -193,7 +190,8 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: "center",
-    marginBottom: 20
+    marginBottom: 20,
+    marginTop: 20
   },
   image: {
     width: 100,
@@ -221,32 +219,25 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold"
   },
-  infoText: {
-    fontSize: 18,
-    marginBottom: 10
-  },
   flatlist: {},
   renderItem: {
     width: "100%",
-    backgroundColor: "#FFFFFF"
+    backgroundColor: "#FFFFFF",
+    padding: 20
   },
   XlMPPNVK: {
     backgroundColor: "#000000",
     height: 1
   },
-  StpgNiSX: {
-    position: "absolute",
-    width: 100,
-    height: 150
-  },
-  shQVzOsZ: {
-    width: "100%",
-    height: 60,
-    backgroundColor: "#FFFFFF"
-  },
   YzkGHIhz: {
     backgroundColor: "#000000",
     height: 1
+  },
+  NqkjuQna: {
+    width: 300,
+    height: 129,
+    position: "absolute",
+    left: 20
   }
 });
 export default PatientPortal;
