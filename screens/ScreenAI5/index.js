@@ -100,11 +100,12 @@ const PatientPortal = () => {
   }];
   return <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Image style={styles.image} source={require("./account_circle_FILL0_wght400_GRAD0_opsz48.png")} />
+        <Image style={styles.image} source={require("./user.png")} />
         <Text style={styles.name}>
           {patientData.name[0].given.join(" ")} {patientData.name[0].family}
         </Text>
-      <ImageBackground style={styles.NqkjuQna} source={require("./Ochsner_Health_System_logo.png")} resizeMode="cover"></ImageBackground></View>
+        <ImageBackground style={styles.NqkjuQna} source={require("./Ochsner_Health_System_logo.png")} resizeMode="cover"></ImageBackground>
+      </View>
       <View style={styles.infoWrapper}>
         <View style={styles.info}>
           <Text style={styles.h2}>Gender: </Text>
@@ -186,7 +187,9 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
   h3: {
-    fontSize: 14
+    fontSize: 14,
+    marginTop: 5,
+    marginBottom: 5
   },
   header: {
     alignItems: "center",
