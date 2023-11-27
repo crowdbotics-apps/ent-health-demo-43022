@@ -104,7 +104,7 @@ const PatientPortal = () => {
         <Text style={styles.name}>
           {patientData.name[0].given.join(" ")} {patientData.name[0].family}
         </Text>
-        <ImageBackground style={styles.NqkjuQna} source={require("./Ochsner_Health_System_logo.png")} resizeMode="cover"></ImageBackground>
+        <ImageBackground style={styles.NqkjuQna} source={require("./optum-logo-ora-rgb1.png")} resizeMode="contain"></ImageBackground>
       </View>
       <View style={styles.infoWrapper}>
         <View style={styles.info}>
@@ -237,10 +237,11 @@ const styles = StyleSheet.create({
     height: 1
   },
   NqkjuQna: {
-    width: 300,
+    width: 251,
     height: 129,
     position: "absolute",
-    left: 20
+    left: 20,
+    top: 0
   }
 });
 export default PatientPortal;
